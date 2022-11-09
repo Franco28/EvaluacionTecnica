@@ -1,0 +1,35 @@
+.containerNav {
+    margin: 2%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+
+.nav-item {
+    margin-left: 1%;
+}
+
+.nav-link {
+    text-decoration: none;
+    border-radius: 10px 10px 10px 10px;
+    border: 2px solid #6ac7ec;
+    background-color: #6ac7ec;
+    color: rgb(255, 255, 255);
+}
+
+.nav-item:hover a:hover {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-border-radius: 30px 30px 30px 30px;
+    border-radius: 30px 30px 30px 30px;
+    cursor: pointer;
+    background-color: #45a9d0;
+    color: rgb(255, 255, 255);
+}
