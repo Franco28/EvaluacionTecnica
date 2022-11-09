@@ -54,7 +54,7 @@
 
     * git init
     * git add *
-    * git commit -m "BOOMP Evaluacion Tecnica"
+    * git commit -m "Subido Evaluacion Tecnica"
     * git branch -M main
     * git remote add origin https://github.com/Franco28/EvaluacionTecnica.git
     * git push -u origin main
