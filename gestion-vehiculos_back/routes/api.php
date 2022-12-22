@@ -18,26 +18,17 @@ use App\Http\Controllers\Api\VehiculosController;
 // Retorno los vehiculos con las funciones adjuntas, [index, actualizar, agregar, eliminar]
 Route::apiResource('/vehiculos', VehiculosController::class)->only(['index', 'actualizar', 'agregar', 'eliminar']);
 
-// Obtengo por parametro de url el id para dar de baja
-Route::post('/vehiculos/baja/{id}', function (Request $request) {
+// Obtengo por parametro de url el id para dar de alta o de baja // HTTP -> PATCH
+Route::patch('/vehiculos/actualizar/{id}', function (Request $request) {
     return VehiculosController::actualizar($request);
 });
 
-// Obtengo por parametro de url el id para dar de alta
-Route::post('/vehiculos/alta/{id}', function (Request $request) {
-    return VehiculosController::actualizar($request);
-});
-
-// Obtengo por parametro de url el id para eliminar
-Route::post('/vehiculos/eliminar/{id}', function (Request $request) {
+// Obtengo por parametro de url el id para eliminar // HTTP -> DELETE
+Route::delete('/vehiculos/eliminar/{id}', function (Request $request) {
     return VehiculosController::eliminar($request);
 });
 
-// Obtengo por parametro de url el id para eliminar
+// Obtengo por parametro de url el id para eliminar // HTTP -> POST
 Route::post('/vehiculos/agregar', function (Request $request) {
     return VehiculosController::agregar($request);
 });
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });

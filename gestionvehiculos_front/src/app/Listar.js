@@ -36,9 +36,34 @@ export default function Listar() {
   };
 
   // Envio el id, para dar de baja, alta, eliminar
-  const actualizarVehiculo = (id, url, param) => {
+  const actualizarVehiculo = (id, param) => {
     axios
-      .post("http://127.0.0.1:8000/api/vehiculos/" + url, {
+      .patch("http://127.0.0.1:8000/api/vehiculos/actualizar/" + id, {
+        baja: param,
+        id: id,
+      })
+      .then(function (response) {
+        setData({
+          ...data,
+          success: true,
+          msgOk: response.data.mensaje,
+          actualizarChange: true,
+          error: false,
+        });
+      })
+      .catch(function (error) {
+        setData({
+          ...data,
+          msgError: error.mensaje,
+          error: true,
+        });
+      });
+  };
+
+  // Envio el id para eliminar
+  const eliminarVehiculoM = (id, param) => {
+    axios
+      .delete("http://127.0.0.1:8000/api/vehiculos/eliminar/" + id, {
         baja: param,
         id: id,
       })
@@ -63,19 +88,19 @@ export default function Listar() {
   // Doy de baja, cambio el estado del boton actualizar a falso
   const clickBaja = (id) => {
     setData({ ...data, actualizarChange: false });
-    actualizarVehiculo(id, "baja/" + id, 1);
+    actualizarVehiculo(id, 1);
   };
 
   // Doy de alta, cambio el estado del boton actualizar a falso
   const clickAlta = (id) => {
     setData({ ...data, actualizarChange: false });
-    actualizarVehiculo(id, "alta/" + id, 0);
+    actualizarVehiculo(id, 0);
   };
 
   // Elimino el vehiculo, cambio el estado del boton actualizar a falso (evito errores con los botones de actualizar)
   const eliminarVehiculo = (id) => {
     setData({ ...data, actualizarChange: false });
-    actualizarVehiculo(id, "eliminar/" + id, null);
+    eliminarVehiculoM(id, null);
   };
 
   // Cargo los datos despues del renderizado
@@ -83,7 +108,7 @@ export default function Listar() {
     fetchVehiculos();
 
     // Actualizo el estado de los botones
-    if (data.actualizarChange == true) {
+    if (data.actualizarChange === true) {
       fetchVehiculos();
     }
   }, [data.actualizarChange]);

@@ -1,3 +1,12 @@
+# CORRECCIÓN - EVALUACION TECNICA
+
+# Se agregaron los verbos
+    * PATCH
+    * DELETE
+
+# Elimine
+    * url alta/baja y la unifique en actualizar
+
 # DETALLES - EVALUACION TECNICA
 
 (.gitignore -> Lo modifique para que se suban archivos importantes lo unico que deje afuera son los node_modules)
